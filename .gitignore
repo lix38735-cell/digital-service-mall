@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Build output
+.next/
+dist/
+build/
+out/
+coverage/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Databases and private uploads
+*.db
+*.sqlite
+*.sqlite3
+data/
+uploads/
+private/
+storage/
+backups/
+
+# Logs and caches
+*.log
+logs/
+.cache/
+.turbo/
+.eslintcache
+
+# Editor and operating system
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
