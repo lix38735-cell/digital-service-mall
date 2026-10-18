@@ -37,7 +37,7 @@ var current=0,working=false,ac=null,nodes=[],toastTimer;
 function one(s){return document.querySelector(s)}
 function all(s){return Array.from(document.querySelectorAll(s))}
 function toast(s){var e=one('#toast');e.textContent=s;e.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){e.classList.remove('show')},2600)}
-function change(i,notify){current=(i+data.length)%data.length;var d=data[current];document.body.dataset.scene=String(current);document.documentElement.style.setProperty('--rgb',d.rgb);document.documentElement.style.setProperty('--accent',d.accent);one('#name').textContent=d.name;one('#subtitle').textContent=d.subtitle;one('#coords').textContent=d.coords;one('#number']='';}
+
 function setScene(i,notify){current=(i+data.length)%data.length;var d=data[current];document.body.dataset.scene=String(current);document.documentElement.style.setProperty('--rgb',d.rgb);document.documentElement.style.setProperty('--accent',d.accent);one('#name').textContent=d.name;one('#subtitle').textContent=d.subtitle;one('#coords').textContent=d.coords;one('#number').textContent='0'+(current+1)+' / 03';all('.planet-tab').forEach(function(b){b.setAttribute('aria-pressed',String(Number(b.dataset.scene)===current))});if(notify)toast('已锁定星域 · '+d.name)}
 all('.planet-tab').forEach(function(b){b.addEventListener('click',function(){setScene(Number(b.dataset.scene),true)})});
 all('[data-card]').forEach(function(b){b.addEventListener('click',function(){setScene(Number(b.dataset.card),true);one('#discover').scrollIntoView({behavior:motionOff?'auto':'smooth'})})});
